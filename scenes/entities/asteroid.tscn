@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cft7qv871u4f6"]
+
+[ext_resource type="Script" uid="uid://cekuc6ems7dsr" path="res://scripts/AsteroidScripts/Asteroid.cs" id="1_s0ge7"]
+[ext_resource type="Texture2D" uid="uid://d146oi6nlabix" path="res://sprites/Asteroid.png" id="2_5mhnt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p0ukn"]
+bounce = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u87q6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5mhnt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Asteroid" type="RigidBody2D"]
+position = Vector2(568, 293)
+physics_material_override = SubResource("PhysicsMaterial_p0ukn")
+gravity_scale = 0.0
+script = ExtResource("1_s0ge7")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_u87q6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

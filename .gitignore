@@ -1,0 +1,25 @@
+# Godot-specific
+.import/
+export_presets.cfg
+
+# Mono / C#
+.mono/
+data_*/ 
+mono_temp/
+
+# General
+*.tmp
+*.log
+*.save
+*.translation
+*.import
+
+# System / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.user
+# Godot 4+ specific ignores
+.godot/
+/android/

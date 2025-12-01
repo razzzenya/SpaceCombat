@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ksg2qrfuvs1"]
+
+[ext_resource type="Script" uid="uid://d4igqeen4j8fv" path="res://scripts/PlayerScripts/Player.cs" id="1_fnyhn"]
+[ext_resource type="Texture2D" uid="uid://cwtvegcbvsoqm" path="res://sprites/Ship.png" id="2_fnyhn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnyhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fnyhn")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5puvx"]
+radius = 14.125
+height = 28.25
+
+[node name="Player" type="Area2D"]
+position = Vector2(573, 498)
+script = ExtResource("1_fnyhn")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fnyhn")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5puvx")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
