@@ -8,14 +8,15 @@ public partial class Player : Area2D
 	[Export] public float Friction = 170f;            // коэффициент автоторможения
 	[Export] public float DashPower = 450f;
 	[Export] public float DashMaxSpeed = 1000f;
-	[Signal] public delegate void HitEventHandler();
+	[Export] public int GameZoneSize { get; set; }
+    [Signal] public delegate void HitEventHandler();
 
     private Vector2 velocity = Vector2.Zero;          // текущая скорость корабля
-	private Vector2 screenSize;
+	private Vector2 gameZone;
 
 	public override void _Ready()
 	{
-		screenSize = GetViewportRect().Size;
+		gameZone = new Vector2(GameZoneSize, GameZoneSize);
 		//Hide();
 	}
 
@@ -72,8 +73,8 @@ public partial class Player : Area2D
 
 		// ---------- SCREEN BOUNDS ----------
 		Position = new Vector2(
-			Mathf.Clamp(Position.X, 0, screenSize.X),
-			Mathf.Clamp(Position.Y, 0, screenSize.Y)
+			Mathf.Clamp(Position.X, 0, gameZone.X),
+			Mathf.Clamp(Position.Y, 0, gameZone.Y)
 		);
 	}
 }

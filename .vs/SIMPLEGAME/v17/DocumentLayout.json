@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\SimpleGameProject\\simple-game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\playerscripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\playerscripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,8 +18,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
+              "RelativeDocumentMoniker": "scripts\\PlayerScripts\\Player.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
+              "RelativeToolTip": "scripts\\PlayerScripts\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T20:58:29.207Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\CameraScripts\\Camera.cs",
+              "RelativeDocumentMoniker": "scripts\\CameraScripts\\Camera.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\CameraScripts\\Camera.cs",
+              "RelativeToolTip": "scripts\\CameraScripts\\Camera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T21:13:59.921Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
@@ -27,19 +58,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Player.cs",
-              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
-              "RelativeDocumentMoniker": "scripts\\PlayerScripts\\Player.cs",
-              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
-              "RelativeToolTip": "scripts\\PlayerScripts\\Player.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T18:09:48.327Z",
-              "EditorCaption": ""
             }
           ]
         },
