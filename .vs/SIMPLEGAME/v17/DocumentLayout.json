@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\SimpleGameProject\\simple-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SimpleGameProject\\simple-game\\scripts\\EnemyScripts\\Enemy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\EnemyScripts\\Enemy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SimpleGameProject\\simple-game\\scripts\\UIScripts\\Interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\UIScripts\\Interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\uiscripts\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\uiscripts\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\playerscripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\playerscripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\gunscripts\\laserbeam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +25,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\asteroidscripts\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\asteroidscripts\\asteroidspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|d:\\simplegameproject\\simple-game\\scripts\\enemyscripts\\enemy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CF6738E-95B3-4230-9CC1-4D6FAB733597}|SimpleGame.csproj|solutionrelative:scripts\\enemyscripts\\enemy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,85 +38,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
               "RelativeDocumentMoniker": "scripts\\PlayerScripts\\Player.cs",
               "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\PlayerScripts\\Player.cs",
               "RelativeToolTip": "scripts\\PlayerScripts\\Player.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAswCoAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAcwGwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-01T20:58:29.207Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Interface.cs",
-              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\UIScripts\\Interface.cs",
-              "RelativeDocumentMoniker": "scripts\\UIScripts\\Interface.cs",
-              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\UIScripts\\Interface.cs",
-              "RelativeToolTip": "scripts\\UIScripts\\Interface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T15:39:54.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Enemy1.cs",
-              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\EnemyScripts\\Enemy1.cs",
-              "RelativeDocumentMoniker": "scripts\\EnemyScripts\\Enemy1.cs",
-              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\EnemyScripts\\Enemy1.cs",
-              "RelativeToolTip": "scripts\\EnemyScripts\\Enemy1.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAIwDwAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T10:43:35.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AsteroidSpawner.cs",
-              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\AsteroidSpawner.cs",
-              "RelativeDocumentMoniker": "scripts\\AsteroidScripts\\AsteroidSpawner.cs",
-              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\AsteroidSpawner.cs",
-              "RelativeToolTip": "scripts\\AsteroidScripts\\AsteroidSpawner.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAowCAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T13:32:33.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Asteroid.cs",
-              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\Asteroid.cs",
-              "RelativeDocumentMoniker": "scripts\\AsteroidScripts\\Asteroid.cs",
-              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\Asteroid.cs",
-              "RelativeToolTip": "scripts\\AsteroidScripts\\Asteroid.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T09:16:13.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LaserBeam.cs",
-              "DocumentMoniker": "D:\\SIMPLEGAMEPROJECT\\SIMPLE-GAME\\scripts\\GunScripts\\LaserBeam.cs",
-              "RelativeDocumentMoniker": "scripts\\GunScripts\\LaserBeam.cs",
-              "ToolTip": "D:\\SIMPLEGAMEPROJECT\\SIMPLE-GAME\\scripts\\GunScripts\\LaserBeam.cs",
-              "RelativeToolTip": "scripts\\GunScripts\\LaserBeam.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T08:23:26.388Z",
               "EditorCaption": ""
             },
             {
@@ -130,12 +65,73 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Interface.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\UIScripts\\Interface.cs",
+              "RelativeDocumentMoniker": "scripts\\UIScripts\\Interface.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\UIScripts\\Interface.cs",
+              "RelativeToolTip": "scripts\\UIScripts\\Interface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T15:39:54.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Enemy1.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\EnemyScripts\\Enemy1.cs",
+              "RelativeDocumentMoniker": "scripts\\EnemyScripts\\Enemy1.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\EnemyScripts\\Enemy1.cs",
+              "RelativeToolTip": "scripts\\EnemyScripts\\Enemy1.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwDwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:43:35.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AsteroidSpawner.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\AsteroidSpawner.cs",
+              "RelativeDocumentMoniker": "scripts\\AsteroidScripts\\AsteroidSpawner.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\AsteroidSpawner.cs",
+              "RelativeToolTip": "scripts\\AsteroidScripts\\AsteroidSpawner.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T13:32:33.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Asteroid.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\Asteroid.cs",
+              "RelativeDocumentMoniker": "scripts\\AsteroidScripts\\Asteroid.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\AsteroidScripts\\Asteroid.cs",
+              "RelativeToolTip": "scripts\\AsteroidScripts\\Asteroid.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:16:13.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LaserBeam.cs",
+              "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\GunScripts\\LaserBeam.cs",
+              "RelativeDocumentMoniker": "scripts\\GunScripts\\LaserBeam.cs",
+              "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\GunScripts\\LaserBeam.cs",
+              "RelativeToolTip": "scripts\\GunScripts\\LaserBeam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T08:23:26.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Camera.cs",
               "DocumentMoniker": "D:\\SimpleGameProject\\simple-game\\scripts\\CameraScripts\\Camera.cs",
               "RelativeDocumentMoniker": "scripts\\CameraScripts\\Camera.cs",
               "ToolTip": "D:\\SimpleGameProject\\simple-game\\scripts\\CameraScripts\\Camera.cs",
               "RelativeToolTip": "scripts\\CameraScripts\\Camera.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAoAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-01T21:13:59.921Z",
               "EditorCaption": ""

@@ -5,13 +5,27 @@ public partial class Interface : Sprite2D
     [Export] public Player Player;
     [Export] public Texture2D[] HpLevels;
     public float Health;
+
+    private bool playerDead = false;
     public override void _Ready()
     {
         Position = new Vector2(70, 50);
+        Player?.Connect("Death", new Callable(this, nameof(OnPlayerDeath)));
     }
 
     public override void _Process(double delta)
     {
+        if (playerDead)
+        {
+            Texture = HpLevels[Mathf.Clamp(Mathf.RoundToInt((Player.Health / Player.MaxHealth) * (HpLevels.Length - 1)), 0, HpLevels.Length - 1)];
+            if (Input.IsActionJustPressed("restart"))
+            {
+                string currentScene = GetTree().CurrentScene.SceneFilePath;
+                GetTree().ChangeSceneToFile(currentScene);
+            }
+            return;
+        }
+
         if (Player == null) return;
 
         float hp = Player.Health;
@@ -21,5 +35,10 @@ public partial class Interface : Sprite2D
         index = Mathf.Clamp(index, 0, HpLevels.Length - 1);
 
         Texture = HpLevels[index];
+    }
+
+    public void OnPlayerDeath()
+    {
+        playerDead = true;
     }
 }

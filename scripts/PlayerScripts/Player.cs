@@ -29,6 +29,7 @@ public partial class Player : RigidBody2D
 
     // camera
     [Signal] public delegate void DashEventHandler();
+    [Signal] public delegate void DeathEventHandler();
 
 
     public override void _Ready()
@@ -105,6 +106,13 @@ public partial class Player : RigidBody2D
         LinearVelocity = vel;
     }
 
+    private void Die()
+    {
+        GD.Print("Player destroyed!");
+        QueueFree();
+        EmitSignal(SignalName.Death);
+    }
+
     private void OnBodyEntered(Node body)
     {
         if (collisionDamageTimer > 0f)
@@ -124,8 +132,7 @@ public partial class Player : RigidBody2D
         }
         if (Health <= 0)
         {
-            GD.Print("Player destroyed!");
-            QueueFree();
+            Die();
         }
     }
 }
