@@ -1,20 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://dofpt2rub3gtl"]
+[gd_scene load_steps=14 format=3 uid="uid://dofpt2rub3gtl"]
 
 [ext_resource type="PackedScene" uid="uid://1ksg2qrfuvs1" path="res://scenes/entities/player.tscn" id="1_1bbdw"]
 [ext_resource type="PackedScene" uid="uid://cft7qv871u4f6" path="res://scenes/entities/asteroid.tscn" id="2_gy01a"]
-[ext_resource type="Texture2D" uid="uid://bgoca836erecv" path="res://sprites/tiles/bg/bg1.png" id="3_hkalp"]
+[ext_resource type="PackedScene" uid="uid://bdg5uy1k2jru1" path="res://scenes/entities/laserbeam.tscn" id="2_qhf3p"]
 [ext_resource type="Script" uid="uid://cjdqvm7knju03" path="res://scripts/CameraScripts/Camera.cs" id="3_r7qys"]
+[ext_resource type="Texture2D" uid="uid://cmo0rid145y0d" path="res://sprites/tiles/bg/bg2.png" id="4_xbibw"]
+[ext_resource type="Script" uid="uid://bso5wynle2uj3" path="res://scripts/AsteroidScripts/AsteroidSpawner.cs" id="5_xbibw"]
+[ext_resource type="PackedScene" uid="uid://cd2oxj3s108h3" path="res://scenes/entities/enemy1.tscn" id="7_3kh8m"]
+[ext_resource type="Script" uid="uid://b3vbcuh2u4lfi" path="res://scripts/EnemyScripts/EnemySpawner.cs" id="8_fqprn"]
+[ext_resource type="PackedScene" uid="uid://dbq6l8kk2nf6g" path="res://scenes/ui/Interface.tscn" id="9_4ooow"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3kh8m"]
+normal = Vector2(-4.37114e-08, -1)
+distance = -47.3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fqprn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ooow"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mpghw"]
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_1bbdw")]
-position = Vector2(2500, 2500)
-GameZoneSize = 5000
+[node name="Player" parent="." node_paths=PackedStringArray("FirePoint") instance=ExtResource("1_1bbdw")]
+position = Vector2(-16, 0)
+Health = 10.0
+MaxHealth = 10.0
+CollisionDamage = 1.0
+CollisionDamageCoolDown = 1.5
+Damage = 2.5
+FirePoint = NodePath(".")
+LaserBeamScene = ExtResource("2_qhf3p")
 
 [node name="Asteroid" parent="." instance=ExtResource("2_gy01a")]
-position = Vector2(2347, 2300)
+position = Vector2(138, -180)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Target")]
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_r7qys")
@@ -24,8 +46,61 @@ Target = NodePath("../Player")
 z_index = -1
 texture_filter = 3
 texture_repeat = 2
-position = Vector2(1.9999999, 6.9999995)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("3_hkalp")
+position = Vector2(6689, -988)
+scale = Vector2(3, 3)
+texture = ExtResource("4_xbibw")
 region_enabled = true
-region_rect = Rect2(0, 0, 5000, 5000)
+region_rect = Rect2(0, 0, 8000, 8000)
+
+[node name="AsteroidSpawner" type="Node2D" parent="." node_paths=PackedStringArray("Player")]
+position = Vector2(16, -8)
+script = ExtResource("5_xbibw")
+AsteroidScene = ExtResource("2_gy01a")
+Count = 450
+SpawnArea = 9200
+PlayerSafeRadius = 400.0
+Player = NodePath("../Player")
+metadata/_edit_group_ = true
+
+[node name="Enemy1" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("7_3kh8m")]
+position = Vector2(551, -238)
+Player = NodePath("../Player")
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(-9100, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_3kh8m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, 9100)
+shape = SubResource("WorldBoundaryShape2D_fqprn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(9100, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_4ooow")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, -9100)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_mpghw")
+
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("Player")]
+script = ExtResource("8_fqprn")
+Enemy1Scene = ExtResource("7_3kh8m")
+MaxEnemies1 = 1
+Enemy1Health = 5
+Player = NodePath("../Player")
+SpawnInterval = 1.5
+SpawnDistance = 1500.0
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_4ooow")]
+
+[node name="Sprite2D" parent="CanvasLayer" index="0" node_paths=PackedStringArray("Player")]
+Player = NodePath("../../Player")
+
+[editable path="CanvasLayer"]

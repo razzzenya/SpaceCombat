@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdg5uy1k2jru1"]
+
+[ext_resource type="Script" uid="uid://elu0xeor7o7a" path="res://scripts/GunScripts/LaserBeam.cs" id="1_mj3om"]
+[ext_resource type="Texture2D" uid="uid://c2d32vctuvlco" path="res://sprites/projectiles/default_beam/1.png" id="2_fdgrs"]
+[ext_resource type="Texture2D" uid="uid://dryj0xa4xpyrb" path="res://sprites/projectiles/default_beam/2.png" id="3_c3ppm"]
+[ext_resource type="Texture2D" uid="uid://n3ghfi36ila1" path="res://sprites/projectiles/default_beam/5.png" id="4_p58n6"]
+[ext_resource type="Texture2D" uid="uid://bjfcie6k1ronr" path="res://sprites/projectiles/default_beam/3.png" id="5_w5fe7"]
+[ext_resource type="Texture2D" uid="uid://2pouf82fd3ta" path="res://sprites/projectiles/default_beam/4.png" id="6_e1yn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj3om"]
+size = Vector2(6, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kqe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fdgrs")
+}, {
+"duration": 0.01,
+"texture": ExtResource("3_c3ppm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p58n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w5fe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e1yn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="laser_beam" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 10
+mass = 0.001
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_mj3om")
+Speed = 1750.0
+LifeTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mj3om")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(2, -2)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_0kqe6")
+frame_progress = 0.68400365
+speed_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

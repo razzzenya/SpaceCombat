@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cft7qv871u4f6"]
+[gd_scene load_steps=6 format=3 uid="uid://cft7qv871u4f6"]
 
 [ext_resource type="Script" uid="uid://cekuc6ems7dsr" path="res://scripts/AsteroidScripts/Asteroid.cs" id="1_s0ge7"]
 [ext_resource type="Texture2D" uid="uid://d146oi6nlabix" path="res://sprites/Asteroid.png" id="2_5mhnt"]
@@ -17,11 +17,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0ge7"]
+radius = 18.5
+height = 39.0
+
 [node name="Asteroid" type="RigidBody2D"]
-position = Vector2(568, 293)
+collision_layer = 2
+collision_mask = 11
 physics_material_override = SubResource("PhysicsMaterial_p0ukn")
 gravity_scale = 0.0
 script = ExtResource("1_s0ge7")
+Health = 3
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -30,5 +36,9 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u87q6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+skew = 0.03141593
+shape = SubResource("CapsuleShape2D_s0ge7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-21, -19, 38, 40)

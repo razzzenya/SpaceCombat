@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd2oxj3s108h3"]
+
+[ext_resource type="Texture2D" uid="uid://qet8hyoja0f3" path="res://sprites/ships/ship1.png" id="1_ltyd6"]
+[ext_resource type="Script" uid="uid://cjtxk5h6c07ll" path="res://scripts/EnemyScripts/Enemy1.cs" id="1_md3pe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md3pe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ltyd6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltyd6"]
+size = Vector2(32, 24)
+
+[node name="Enemy1" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 7
+mass = 2.0
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_md3pe")
+AsteroidCollisionDamage = 0.2
+Health = 5.0
+Damage = 3.5
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+rotation = 1.5707964
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_md3pe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1.3113417e-07)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ltyd6")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

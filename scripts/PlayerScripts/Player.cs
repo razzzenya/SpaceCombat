@@ -1,80 +1,131 @@
 using Godot;
 
-public partial class Player : Area2D
+public partial class Player : RigidBody2D
 {
-	[Export] public float Acceleration = 600f;        // ускорение при move_up
-	[Export] public float MaxSpeed = 400f;            // максимальная скорость
-	[Export] public float RotationSpeed = 180f;       // градусов/сек
-	[Export] public float Friction = 170f;            // коэффициент автоторможения
-	[Export] public float DashPower = 450f;
-	[Export] public float DashMaxSpeed = 1000f;
-	[Export] public int GameZoneSize { get; set; }
-    [Signal] public delegate void HitEventHandler();
+    [Export] public float Acceleration = 600f;
+    [Export] public float MaxSpeed = 400f;
+    [Export] public float RotationSpeed = 5.2f;
+    [Export] public float Friction = 170f;
+    [Export] public float DashPower = 950f;
+    [Export] public float DashMaxSpeed = 1000f;
+    [Export] public float DashDecay = 200f;
+    [Export] public float AsteroidCollisionDamage = 1f;
+    [Export] public float Health { get; set; }
+    [Export] public float MaxHealth { get; set; }
 
-    private Vector2 velocity = Vector2.Zero;          // текущая скорость корабля
-	private Vector2 gameZone;
+    /// guns
+    [Export] public float CollisionDamage { get; set; }
+    [Export] public float CollisionDamageCoolDown { get; set; }
+    [Export] public float Damage { get; set; }
+    [Export] public Node2D FirePoint { get; set; }
+    /// laser beam
+    [Export] public PackedScene LaserBeamScene { get; set; }
+    [Export] public float BeamFireCooldown { get; set; }
+    private float fireTimer = 0f;
+    
+    private float currentSpeedLimit;
+    private Vector2 gameZone;
+    private float collisionDamageTimer = 0f;
 
-	public override void _Ready()
-	{
-		gameZone = new Vector2(GameZoneSize, GameZoneSize);
-		//Hide();
-	}
+    // camera
+    [Signal] public delegate void DashEventHandler();
 
-    private void OnBodyEntered(Node2D body)
+
+    public override void _Ready()
     {
-        Hide();
-        EmitSignal(SignalName.Hit);
-        GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        currentSpeedLimit = MaxSpeed;
     }
 
-    public override void _Process(double delta)
-	{
-		float dt = (float)delta;
+    private void LaserBeamShoot()
+    {
+        fireTimer = BeamFireCooldown;
+        var projectile = LaserBeamScene.Instantiate<LaserBeam>();
+        projectile.Damage = Damage;
+        projectile.GlobalPosition = FirePoint.GlobalPosition + FirePoint.Transform.Y * -30f + FirePoint.Transform.X * 1.7f;
+        projectile.Rotation = FirePoint.GlobalRotation;
+        GetTree().CurrentScene.AddChild(projectile);
+    }
 
-		// ---------- ROTATION ----------
-		if (Input.IsActionPressed("move_left"))
-			RotationDegrees -= RotationSpeed * dt;
+    public override void _PhysicsProcess(double delta)
+    {
+        float dt = (float)delta;
+        if (collisionDamageTimer > 0f)
+            collisionDamageTimer -= dt;
+        // == SHOOTING ===
+        fireTimer -= dt;
+        if (Input.IsActionPressed("shoot") && fireTimer <= 0f)
+        {
+            LaserBeamShoot();
+        }
 
-		if (Input.IsActionPressed("move_right"))
-			RotationDegrees += RotationSpeed * dt;
+        // === ROTATION ===
+        float targetAngularVelocity = 0f;
 
-		Vector2 forward = -Transform.Y;
+        if (Input.IsActionPressed("move_left"))
+            targetAngularVelocity = -RotationSpeed;
+        else if (Input.IsActionPressed("move_right"))
+            targetAngularVelocity = RotationSpeed;
+        // плавное торможение вращения
+        AngularVelocity = Mathf.MoveToward(AngularVelocity, targetAngularVelocity, RotationSpeed * dt * 2f);
 
-        // ---------- ACCELERATION ----------
+        Vector2 forward = -Transform.Y;
+
+        // === ACCELERATION ===
+        Vector2 vel = LinearVelocity;
+
         if (Input.IsActionPressed("move_up"))
-		{
-			velocity += forward * Acceleration * dt;
+            vel += forward * Acceleration * dt;
+
+        if (Input.IsActionPressed("move_down"))
+            vel -= forward * (Acceleration * 0.6f) * dt;
+
+        // === DASH ===
+        if (Input.IsActionJustPressed("dash"))
+        {
+            vel += forward * DashPower;
+            currentSpeedLimit = DashMaxSpeed;
+            EmitSignal(SignalName.Dash);
         }
 
-		// ---------- BACKWARD ACCELERATION ----------
-		if (Input.IsActionPressed("move_down"))
-		{
-			velocity -= forward * Acceleration * 0.6f * dt; // назад обычно медленнее
-		}
+        // === SPEED LIMIT ===
+        if (vel.Length() > currentSpeedLimit)
+            vel = vel.Normalized() * currentSpeedLimit;
 
-		if (Input.IsActionJustPressed("dash"))
-		{
-            velocity += forward * DashPower;
+        currentSpeedLimit = Mathf.MoveToward(
+            currentSpeedLimit,
+            MaxSpeed,
+            DashDecay * dt
+        );
+
+        // === FRICTION ===
+        if (!Input.IsActionPressed("move_up") && !Input.IsActionPressed("move_down"))
+            vel = vel.MoveToward(Vector2.Zero, Friction * dt);
+
+        // === APPLY VELOCITY ===
+        LinearVelocity = vel;
+    }
+
+    private void OnBodyEntered(Node body)
+    {
+        if (collisionDamageTimer > 0f)
+            return;
+        GD.Print("Collision with: " + body.Name);
+        if (body is Asteroid)
+        {
+            Health -= AsteroidCollisionDamage;
+            collisionDamageTimer = CollisionDamageCoolDown;
+            GD.Print("Player Health: " + Health);
         }
-
-        float currentMax = Input.IsActionJustPressed("dash") ? DashMaxSpeed : MaxSpeed;
-        // ---------- LIMIT SPEED ----------
-        if (velocity.Length() > currentMax)
-		velocity = velocity.Normalized() * MaxSpeed;
-
-		// ---------- AUTO FRICTION ----------
-		if (!Input.IsActionPressed("move_up") && !Input.IsActionPressed("move_down"))
-		{
-			velocity = velocity.MoveToward(Vector2.Zero, Friction * dt);
-		}
-
-		// ---------- APPLY MOTION ----------
-		Position += velocity * dt;
-
-		// ---------- SCREEN BOUNDS ----------
-		Position = new Vector2(
-			Mathf.Clamp(Position.X, 0, gameZone.X),
-			Mathf.Clamp(Position.Y, 0, gameZone.Y)
-		);
-	}
+        else if (body is Enemy1)
+        {
+            Health -= (body as Enemy1).Damage;
+            collisionDamageTimer = CollisionDamageCoolDown;
+            GD.Print("Player Health: " + Health);
+        }
+        if (Health <= 0)
+        {
+            GD.Print("Player destroyed!");
+            QueueFree();
+        }
+    }
 }

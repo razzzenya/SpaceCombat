@@ -1,0 +1,30 @@
+[gd_scene load_steps=23 format=3 uid="uid://dbq6l8kk2nf6g"]
+
+[ext_resource type="Script" uid="uid://bok7svioyx8w6" path="res://scripts/UIScripts/Interface.cs" id="1_iwmon"]
+[ext_resource type="Texture2D" uid="uid://bs2pn80u0aysl" path="res://sprites/ui/0.png" id="2_1ecyu"]
+[ext_resource type="Texture2D" uid="uid://dvdhxraqxow5w" path="res://sprites/ui/5.png" id="3_8x01x"]
+[ext_resource type="Texture2D" uid="uid://dtt3j4hayqrlh" path="res://sprites/ui/10.png" id="4_0f2mt"]
+[ext_resource type="Texture2D" uid="uid://oc3su7y5l6y1" path="res://sprites/ui/15.png" id="5_7b46d"]
+[ext_resource type="Texture2D" uid="uid://u134fo8d2tc8" path="res://sprites/ui/20.png" id="6_w26mb"]
+[ext_resource type="Texture2D" uid="uid://bvw68nwki8er2" path="res://sprites/ui/25.png" id="7_sl1cd"]
+[ext_resource type="Texture2D" uid="uid://saew14g07e6f" path="res://sprites/ui/30.png" id="8_gdo72"]
+[ext_resource type="Texture2D" uid="uid://b1nibi35vrtm1" path="res://sprites/ui/35.png" id="9_wj4ur"]
+[ext_resource type="Texture2D" uid="uid://cg6vdrcx3xgg6" path="res://sprites/ui/40.png" id="10_evyyy"]
+[ext_resource type="Texture2D" uid="uid://bqucb1ihq0mup" path="res://sprites/ui/45.png" id="11_e3itn"]
+[ext_resource type="Texture2D" uid="uid://oaudieop3lhq" path="res://sprites/ui/50.png" id="12_6xw8h"]
+[ext_resource type="Texture2D" uid="uid://dti0dw3aw03dc" path="res://sprites/ui/55.png" id="13_dgt3a"]
+[ext_resource type="Texture2D" uid="uid://bu1bce8n3577l" path="res://sprites/ui/60.png" id="14_3r3my"]
+[ext_resource type="Texture2D" uid="uid://bcyihhrf30vrc" path="res://sprites/ui/65.png" id="15_wcje8"]
+[ext_resource type="Texture2D" uid="uid://bgqprimu5grea" path="res://sprites/ui/70.png" id="16_nlowv"]
+[ext_resource type="Texture2D" uid="uid://crsetn64spa45" path="res://sprites/ui/75.png" id="17_rx71h"]
+[ext_resource type="Texture2D" uid="uid://u3vgjd837uwq" path="res://sprites/ui/80.png" id="18_71bbq"]
+[ext_resource type="Texture2D" uid="uid://cgif0ra7peewp" path="res://sprites/ui/85.png" id="19_53roo"]
+[ext_resource type="Texture2D" uid="uid://biy57ptrg2cfr" path="res://sprites/ui/90.png" id="20_hybl5"]
+[ext_resource type="Texture2D" uid="uid://duu7u6188dbep" path="res://sprites/ui/95.png" id="21_sif6n"]
+[ext_resource type="Texture2D" uid="uid://cu58xku4slluk" path="res://sprites/ui/100.png" id="22_j4rni"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("1_iwmon")
+HpLevels = Array[Texture2D]([ExtResource("2_1ecyu"), ExtResource("3_8x01x"), ExtResource("4_0f2mt"), ExtResource("5_7b46d"), ExtResource("6_w26mb"), ExtResource("7_sl1cd"), ExtResource("8_gdo72"), ExtResource("9_wj4ur"), ExtResource("10_evyyy"), ExtResource("11_e3itn"), ExtResource("12_6xw8h"), ExtResource("13_dgt3a"), ExtResource("14_3r3my"), ExtResource("15_wcje8"), ExtResource("16_nlowv"), ExtResource("17_rx71h"), ExtResource("18_71bbq"), ExtResource("19_53roo"), ExtResource("20_hybl5"), ExtResource("21_sif6n"), ExtResource("22_j4rni")])
